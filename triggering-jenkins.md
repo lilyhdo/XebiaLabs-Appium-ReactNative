@@ -4,7 +4,7 @@ This guide will demonstrate how to set a XebiaLabs task to trigger a Jenkins bui
 
 ## Prerequisites
 
-* Jenkins is installed and you have an account
+* Jenkins is installed
 
 * Have an account with XebiaLabs
 
@@ -12,7 +12,7 @@ _Follow the steps below to setup XebiaLabs for Jenkins_
 
 #### 1.1 Install the Jenkins plugin
 
-On XebiaLabs, click on 'Plugins' in the navigation bar at the top of the screen. In the search bar, type in 'Jenkins' and install. 
+On XebiaLabs, click on 'Plugins' in the navigation bar at the top of the screen. In the search bar, type in 'Jenkins' and install it. 
 
 ![jenkins-plugin](assets/jenkins-plugin.png)
 
@@ -32,7 +32,7 @@ Under 'Authentication', enter in your Jenkins username and password.
 
 #### 1.3 Set Jenkins as a task
 
-If you have not already have a release, create a new one. 
+If you do not already have a release, create a new one. 
 
 ![new-release](assets/new-release.png)
 
