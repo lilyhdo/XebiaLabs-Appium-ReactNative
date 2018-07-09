@@ -8,8 +8,6 @@ This guide will demonstrate how to set a XebiaLabs task to trigger a Jenkins bui
 
 * Have an account with XebiaLabs
 
-_Follow the steps below to create a Jenkins job to run an automation test._
-
 #### 1.1 Create a new Jenkins job
 
 On the left side of the site, click on 'New Item' to create a new project. 
@@ -48,8 +46,6 @@ Under build environment, check the box that says 'Provide Node & npm bin/ folder
 
 Save your configuration settings. Try 'Build Now' and then check Kobiton cloud devices to see if a test session was created. If successful, you can move onto triggering a Jenkins build from a XebiaLabs task. 
 
-_Follow the steps below to setup XebiaLabs for Jenkins._
-
 #### 2.1 Install the Jenkins plugin
 
 On XebiaLabs, click on 'Plugins' in the navigation bar at the top of the screen. In the search bar, type in 'Jenkins' and install it. 
@@ -84,8 +80,14 @@ Set a name for the new task. Click on the dropdown menu and select 'Jenkins' and
 
 ![build](assets/build.png)
 
+> You can also run an automation test script directly as a task in XebiaLabs, but there may be issues for Jython and Groovy scripts. 
+
 Click on the task to open up the settings. Enter in the Server name, which was created earlier. Enter your Jenkins username and password, as well as the name of the job you want to trigger in Jenkins. 
 
 ![task-settings](assets/task-settings.png)
 
 Exit out of the settings and start your release. You have successfully created a task that will trigger a Jenkins build!
+
+Check the log output in your task to see if the build was successful.  
+
+![log-output](assets/log-output.png)
