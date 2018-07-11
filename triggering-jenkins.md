@@ -8,9 +8,21 @@ This guide will demonstrate how to set a XebiaLabs task to trigger a Jenkins bui
 
 * Have an account with XebiaLabs
 
-#### 1.1 Create a new Jenkins job
+## Jenkins Configuration
 
-On the left side of the site, click on 'New Item' to create a new project. 
+### 1. Integrate NodeJS Plugin
+
+This guide will execute the NodeJS test script from the Kobiton samples for this Jenkins build. To run a NodeJS script, installing the NodeJS Plugin on Jenkins is necessary. 
+
+Add the NodeJS Plugin on Jenkins to execute NodeJS script as a build step. To do this, go to 'Manage Jenkins' -> 'Manage Plugins' -> Available. Search for NodeJS and install it.
+
+![manage-plugins](assets/manage-plugins.png)
+
+If you are using a different programming language for your automation script, you may try to find a suitable plugin for your project if necessary.
+
+### 2. Create a new Jenkins job
+
+On the left sidebar, click on 'New Item' to create a new project. 
 
 ![new-item](assets/new-item.png)
 
@@ -32,27 +44,23 @@ npm install
 npm run android-app-test
 ```
 
-In your automation test, make sure to include your own Kobiton username and API key as well as the desired device and platform you wish to test with, which can be found on the Kobiton website.
-
-This guide is executing the NodeJS test script from the Kobiton samples, so we will add the NodeJS Plugin on Jenkins to execute NodeJS script as a build step. To do this, go to 'Manage Jenkins' -> 'Manage Plugins' -> Available. Search for NodeJS and install it.
-
-![manage-plugins](assets/manage-plugins.png)
-
-If you are using a different language, you may try to find a suitable plugin for your project if necessary.
+> Note: In your automation test, make sure to include your Kobiton username, API key, and the desired capabilities, which can all be found on the Kobiton website.
 
 Under build environment, check the box that says 'Provide Node & npm bin/ folder to PATH'.
 
 ![node-path](assets/node-path.png)
 
-Save your configuration settings. Try 'Build Now' and then check Kobiton cloud devices to see if a test session was created. If successful, you can move onto triggering a Jenkins build from a XebiaLabs task. 
+Save your configuration settings. Try 'Build Now' and then check Kobiton cloud devices to see if a test session was created.  
 
-#### 2.1 Install the Jenkins plugin
+## XebiaLabs Configuration
 
-On XebiaLabs, click on 'Plugins' in the navigation bar at the top of the screen. In the search bar, type in 'Jenkins' and install it. 
+### 1. Install the Jenkins plugin in XebiaLabs
+
+On XebiaLabs, click on 'Plugins' in the top navigation bar. In the search bar, type in 'Jenkins' and install it. 
 
 ![jenkins-plugin](assets/jenkins-plugin.png)
 
-#### 2.2 Update Jenkins plugin settings
+### 2. Update Jenkins plugin settings
 
 In the navigation bar, click on 'Settings' and then 'Shared configuration'. 
 
@@ -66,9 +74,9 @@ Under 'Authentication', enter in your Jenkins username and password.
 
 ![server-settings](assets/server-settings.png)
 
-#### 2.3 Set Jenkins as a task
+### 3. Set Jenkins as a task
 
-If you do not already have a release, create a new one. 
+If you have not created a release yet, follow [this link](./planning-release.md) for guidance on how.
 
 ![new-release](assets/new-release.png)
 
@@ -79,8 +87,6 @@ Click on 'Add task' under the desired phase.
 Set a name for the new task. Click on the dropdown menu and select 'Jenkins' and 'Build'. Then click the 'Add' button to finish creating the task. 
 
 ![build](assets/build.png)
-
-> You can also run an automation test script directly as a task in XebiaLabs, but there may be issues for Jython and Groovy scripts. 
 
 Click on the task to open up the settings. Enter in the Server name, which was created earlier. Enter your Jenkins username and password, as well as the name of the job you want to trigger in Jenkins. 
 
