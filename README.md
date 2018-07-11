@@ -1,5 +1,4 @@
 # XebiaLabs-Appium-ReactNative
-Guidance on integrating Kobiton service into the mobile app build pipeline: XebiaLabs, Appium and ReactNative.
 
 XebiaLabs is a service that develops Continuous Delivery and DevOps software to provide companies greater control over their software delivery process. In XL Release, you can plan, automate, and optimize your pipeline.
 

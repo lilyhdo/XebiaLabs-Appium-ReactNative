@@ -1,6 +1,6 @@
 # Planning a release on XebiaLabs
 
-With XebiaLabs's XL Release, you can plan, automate, and optimize your pipeline visually in a neat, step-by-step diagram which is referred to as a "release". 
+_With XebiaLabs's XL Release, you can plan, automate, and optimize your pipeline visually in a neat, step-by-step diagram which is referred to as a "release"._
 
 Log in to XebiaLabs. In the top navigation bar, click on the tab 'Release'. Then click on the 'New Release' button.
 
@@ -27,8 +27,6 @@ To add a new task, click on 'Add task' under the desired phase.
 In the dropdown menu, you can specify the type of task. Tasks will execute specific steps in the release process. In this example, the task we add will run an automation script. 
 
 ![create-task](assets/create-task.png)
-
-With Xebia XL, you can plan all the steps of your pipeline through phases and tasks.
 
 Once you are done with editing a release, you can click on the 'Start Release' to execute your pipeline process. 
 

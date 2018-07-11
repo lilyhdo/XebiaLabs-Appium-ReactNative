@@ -18,7 +18,7 @@ Add the NodeJS Plugin on Jenkins to execute NodeJS script as a build step. To do
 
 ![manage-plugins](assets/manage-plugins.png)
 
-If you are using a different programming language for your automation script, you may try to find a suitable plugin for your project if necessary.
+> Note: If you are using a different programming language for your automation script, you may try to find a suitable plugin for your project if necessary.
 
 ### 2. Create a new Jenkins job
 
@@ -30,7 +30,7 @@ Enter in a project name and select the project type 'Freestyle project'.
 
 ![new-project](assets/new-project.png)
 
-In the configuration settings, go the 'Build' section. Click on 'Add build step' and select 'Execute shell'. 
+Once you click 'OK', you will automatically be taken to the project's configuration settings. Go the 'Build' section. Click on 'Add build step' and select 'Execute shell'. 
 
 ![build-step](assets/build-step.png)
 
@@ -78,7 +78,7 @@ Under 'Authentication', enter in your Jenkins username and password.
 
 If you have not created a release yet, follow [this link](./planning-release.md) for guidance on how.
 
-![new-release](assets/new-release.png)
+Once your release is created, we will add a task that will trigger a Jenkins build. 
 
 Click on 'Add task' under the desired phase. 
 
