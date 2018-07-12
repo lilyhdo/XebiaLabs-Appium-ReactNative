@@ -76,7 +76,7 @@ Enter this in the command. Enter your own Kobiton  username and API key as well 
 [ ! -d "samples" ] && git clone https://github.com/kobiton/samples.git || echo "Samples already exist"
 cd samples/javascript
 npm install
-npm run android-web-test
+KOBITON_API_KEY=... KOBITON_USERNAME=... npm run android-web-test
 ```
 
 This guide is executing the NodeJS test script from the Kobiton samples, so we will add the NodeJS Plugin on Jenkins to execute NodeJS script as a build step. To do this, go to 'Manage Jenkins' -> 'Manage Plugins' -> Available. Search for NodeJS and install it.
@@ -88,8 +88,6 @@ If you are using a different language, you may try to find a suitable plugin for
 Under build environment, check the box that says 'Provide Node & npm bin/ folder to PATH'.
 
 ![build-environment](assets/2-build-environment.png)
-
-**5. Trigger Jenkins project by pushing on GitHub**
 
 Try Build now and check Kobiton cloud devices to see if a test session was created. 
 
@@ -118,7 +116,7 @@ curl -X GET https://api.kobiton.com/v1/sessions \
 
 Below are necessary Kobiton Rest API endpoints that you may need.
 
-- Get session info
+- [Get session info](https://api.kobiton.com/docs/#get-a-session)
 ```
 GET /sessions{sessionId}
 ```
@@ -134,7 +132,7 @@ With this line of code, you can print the session information to the console.
 console.log(sessionCapabilities)
 ```
 
-- Get session commands
+- [Get session commands](https://api.kobiton.com/docs/#get-session-commands)
 ```
 GET /sessions/{sessionId}/commands
 ```
