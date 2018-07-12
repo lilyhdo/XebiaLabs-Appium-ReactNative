@@ -10,37 +10,86 @@ This guide will demonstrate how to set a XebiaLabs task to trigger a Jenkins bui
 
 * Have an account with Kobiton
 
-## Jenkins Configuration
+## 1. XebiaLabs Configuration
 
-### 1. Prepare Kobiton configuration for executing automation testing
+### 1.1 Install the Jenkins plugin in XebiaLabs
+
+Log in to XebiaLabs. Click on 'Plugins' in the top navigation bar. In the search bar, type in 'Jenkins' and install it. 
+
+![jenkins-plugin](assets/jenkins-plugin.png)
+
+### 1.2 Update Jenkins plugin settings
+
+In the navigation bar, click on 'Settings' and then 'Shared configuration'. 
+
+Under 'Jenkins: Server', click on 'Add Server'. 
+
+![add-server](assets/add-server.png)
+
+Enter in a title for the configuration, as well as the Jenkins url where the server can be reached. 
+
+Under 'Authentication', enter in your Jenkins username and password. 
+
+![server-settings](assets/server-settings.png)
+
+### 1.3 Set Jenkins as a task
+
+If you have not created a release yet, follow [this link](./planning-release.md) for guidance on how.
+
+Once your release is created, we will add a task that will trigger a Jenkins build. 
+
+Click on 'Add task' under the desired phase. 
+
+![add-task](assets/add-task.png)
+
+Set a name for the new task. Click on the dropdown menu and select 'Jenkins' and 'Build'. Then click the 'Add' button to finish creating the task. 
+
+![build](assets/build.png)
+
+Click on the task to open up the settings. Enter in the Server name, which was created earlier. Enter your Jenkins username and password, as well as the name of the job you want to trigger in Jenkins. 
+
+![task-settings](assets/task-settings.png)
+
+Exit out of the settings and start your release. You have successfully created a task that will trigger a Jenkins build!
+
+Once you start your release, you can check the log output in your task to see if the build was successful.  
+
+![log-output](assets/log-output.png)
+
+## 2. Jenkins Configuration
+
+### 2.1 Prepare Kobiton configuration for executing automation testing
 
 * #### Username 
-1. Go to https://portal.kobiton.com/
-2. In the upper right hand corner, click on your name and in the drop down menu, click on Profile. 
+Go to https://portal.kobiton.com/
+
+In the upper right hand corner, click on your name and in the drop down menu, click on Profile. 
 
 ![profile](assets/2-profile-user.png)
 
-3. You should see the username. 
+You should see the username. 
 
 ![username](assets/2-username.png)
 
 * #### API key
-1. Click on your name in the upper righthand corner again and select settings. 
-2. You should be able to find your API key under 'API Keys'. 
+Click on your name in the upper righthand corner again and select settings. 
+
+You should be able to find your API key under 'API Keys'. 
 
 ![api-key](assets/2-apikey.png)
 
 * #### Desired cap
-1. In the navigation bar at the top of the Kobiton website, select Devices. 
-2. Hover over any device and click on the Automation settings button (the gear symbol). 
+In the navigation bar at the top of the Kobiton website, select Devices. 
+
+Hover over any device and click on the Automation settings button (the gear symbol). 
 
 ![automation](assets/2-automation.png)
 
-3. On the left hand side, you can select your preferred language, as well as any other variables you would like to adjust, such as **App Type**, **Device Group**, and **Orientation**. Adjusting the settings on the left side will affect the desiredCaps, which you can find in the right side of the window. 
+On the left hand side, you can select your preferred language, as well as any other variables you would like to adjust, such as **App Type**, **Device Group**, and **Orientation**. Adjusting the settings on the left side will affect the desiredCaps, which you can find in the right side of the window. 
 
 ![automation-settings](assets/2-automationsettings.png)
 
-## 2. Create new Jenkins project to execute the automation test
+### 2.2 Create new Jenkins project to execute the automation test
 
 #### How to setup Jenkins to run automation testing
 
@@ -48,7 +97,7 @@ Jenkins is an open source automation server that provides hundreds of plugins to
 
 Download Jenkins from https://jenkins.io/ and make sure you have a Jenkins server available with a public domain. 
 
-**3. Write the automation test script**
+**1. Write the automation test script**
 
 * How to write a simple test
 
@@ -56,7 +105,7 @@ For examples of automation tests, go to https://github.com/kobiton/samples .
 
 Choose a language for your test script, and decide whether you want to test on Android or iOS, and either do a web test or an app test. Make sure in the code you specify your Kobiton username, API key, and information under desiredCaps. 
 
-**4. Create Jenkins project**
+**2. Create Jenkins project**
 
 On the left side on the page, click on New Item to start a new Jenkins project. 
 
@@ -89,10 +138,11 @@ Under build environment, check the box that says 'Provide Node & npm bin/ folder
 
 ![build-environment](assets/2-build-environment.png)
 
-Try Build now and check Kobiton cloud devices to see if a test session was created. 
+**3. Test**
 
-**6. Get the automation session data through Kobiton REST API**
+Start your XL Release and check Kobiton cloud devices to see if a test session was created. 
 
+**4. Get the automation session data through Kobiton REST API**
 
 - Update test result to session (https://api.kobiton.com/docs/#update-session-information)
 
@@ -169,49 +219,3 @@ The test is a either a success or failure.
     - Fill in the information for your request and submit your ticket
 
     ![submit-ticket](assets/2-submit-ticket.png)
-
-## XebiaLabs Configuration
-
-### 1. Install the Jenkins plugin in XebiaLabs
-
-Log in to XebiaLabs. Click on 'Plugins' in the top navigation bar. In the search bar, type in 'Jenkins' and install it. 
-
-![jenkins-plugin](assets/jenkins-plugin.png)
-
-### 2. Update Jenkins plugin settings
-
-In the navigation bar, click on 'Settings' and then 'Shared configuration'. 
-
-Under 'Jenkins: Server', click on 'Add Server'. 
-
-![add-server](assets/add-server.png)
-
-Enter in a title for the configuration, as well as the Jenkins url where the server can be reached. 
-
-Under 'Authentication', enter in your Jenkins username and password. 
-
-![server-settings](assets/server-settings.png)
-
-### 3. Set Jenkins as a task
-
-If you have not created a release yet, follow [this link](./planning-release.md) for guidance on how.
-
-Once your release is created, we will add a task that will trigger a Jenkins build. 
-
-Click on 'Add task' under the desired phase. 
-
-![add-task](assets/add-task.png)
-
-Set a name for the new task. Click on the dropdown menu and select 'Jenkins' and 'Build'. Then click the 'Add' button to finish creating the task. 
-
-![build](assets/build.png)
-
-Click on the task to open up the settings. Enter in the Server name, which was created earlier. Enter your Jenkins username and password, as well as the name of the job you want to trigger in Jenkins. 
-
-![task-settings](assets/task-settings.png)
-
-Exit out of the settings and start your release. You have successfully created a task that will trigger a Jenkins build!
-
-You might need to check the log output in your task to see if the build was successful.  
-
-![log-output](assets/log-output.png)
